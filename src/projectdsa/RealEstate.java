@@ -1,5 +1,7 @@
 package projectdsa;
 
+import javax.swing.JOptionPane;
+
 public class RealEstate extends javax.swing.JFrame {
 
     SortedList sl = new SortedList();
@@ -215,16 +217,40 @@ public class RealEstate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        
+         try {
+            // calls the resetArrayList() method in SortedList class
+            sl.resetArrayList();
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-    
-       
+
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-                
+          try {
+            if(sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
+                JOptionPane.showMessageDialog(this, "Entered Lot Number already exist!");   
+            }
+            else {
+                ListHouse a=new ListHouse();
+                a.setFname(txtFname.getText());
+                a.setLname(txtLname.getText());
+                a.setLotno(Integer.parseInt(txtLotno.getText().toString()));
+                a.setNob(Integer.parseInt(txtNob.getText().toString()));
+                a.setPrice(Integer.parseInt(txtPrice.getText().toString()));
+                a.setSqfeet(Integer.parseInt(txtSqfeet.getText().toString()));
+                sl.addList(a);
+
+                JOptionPane.showMessageDialog(this, "Record successfully inserted!");
+            }
+        }
+      catch(Exception e){
+          System.out.println(e);
+      }       
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -239,8 +265,30 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClearActionPerformed
   
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-      
+        
+        clearField();
+        
+         try {
+            if(sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
              
+                for(int c=0; c<sl.list.size(); c++) {
+                    if(sl.list.get(c).getLotno()==Integer.parseInt(txtLotno.getText().toString())) {
+                        txtFname.setText(sl.list.get(c).getFname());
+                        txtLname.setText(sl.list.get(c).getLname());
+                        txtNob.setText(Integer.toString(sl.list.get(c).getNob()));
+                        txtPrice.setText(Integer.toString(sl.list.get(c).getPrice()));
+                        txtSqfeet.setText(Integer.toString(sl.list.get(c).getSqfeet()));                  
+                    }
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Entered Lot Number does not exist!");
+            }     
+            
+         }
+         catch(Exception e) {
+             System.out.println(e);
+         }   
     }//GEN-LAST:event_btnFindActionPerformed
        
     private void clearField() {
