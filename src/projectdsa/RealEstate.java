@@ -10,6 +10,13 @@ public class RealEstate extends javax.swing.JFrame {
     public RealEstate() {
         initComponents();
         
+        try {
+            // calls the copyList method in SortedList
+            sl.copyList();
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
     }
 
     @SuppressWarnings("unchecked")

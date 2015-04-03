@@ -7,6 +7,16 @@ public class SortedList extends ListHouse {
     public static ArrayList<ListHouse> list=new ArrayList<ListHouse>();
     HouseFile hf=new HouseFile();
     
+    public void copyList()
+    {
+        try {
+            list=hf.getFromFile();
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     public void addList(ListHouse lh)
     {
         try {
