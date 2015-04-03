@@ -282,7 +282,7 @@ public class RealEstate extends javax.swing.JFrame {
                         txtPrice.setText(Integer.toString(sl.list.get(c + 1).getPrice()));
                         txtSqfeet.setText(Integer.toString(sl.list.get(c + 1).getSqfeet()));
                         
-                        jLabel1.setText("House "+(c+2)+" Selected");
+                        jLabel1.setText("House "+(c+2)+" Details");
                     }
                 }
             } else {

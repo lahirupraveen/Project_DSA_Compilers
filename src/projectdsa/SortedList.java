@@ -29,6 +29,7 @@ public class SortedList extends ListHouse {
     public void resetArrayList() {
         try {
             list.clear();
+            hf.saveToFile(list);
         } catch (Exception e) {
             System.out.println(e);
         }
