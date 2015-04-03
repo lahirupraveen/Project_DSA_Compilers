@@ -206,7 +206,7 @@ public class RealEstate extends javax.swing.JFrame {
                     .addComponent(txtSqfeet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNob, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -296,7 +296,17 @@ public class RealEstate extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
 
         try {
-            if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
+            if (txtLotno.getText().equals("") || txtFname.getText().equals("") || txtLname.getText().equals("") || txtNob.getText().equals("") || txtPrice.getText().equals("") || txtSqfeet.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Field can not be empty!");
+            } else if (!isNumber(txtLotno.getText().toString())) {
+                JOptionPane.showMessageDialog(this, "Lot no must be numeric!");
+            } else if (!isNumber(txtNob.getText().toString())) {
+                JOptionPane.showMessageDialog(this, "Number Of Bedrooms must be numeric!");
+            } else if (!isNumber(txtPrice.getText().toString())) {
+                JOptionPane.showMessageDialog(this, "Price must be numeric!");
+            } else if (!isNumber(txtSqfeet.getText().toString())) {
+                JOptionPane.showMessageDialog(this, "Sqare feets must be numeric!");
+            } else if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
                 JOptionPane.showMessageDialog(this, "Entered Lot Number already exist!");
             } else {
                 ListHouse a = new ListHouse();
