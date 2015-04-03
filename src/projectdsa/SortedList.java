@@ -5,11 +5,13 @@ import java.util.*;
 public class SortedList extends ListHouse {
     
     public static ArrayList<ListHouse> list=new ArrayList<ListHouse>();
+    HouseFile hf=new HouseFile();
     
     public void addList(ListHouse lh)
     {
         try {
             list.add(lh);
+            hf.saveToFile(list);
         }
         catch(Exception e) {
             System.out.println(e);
