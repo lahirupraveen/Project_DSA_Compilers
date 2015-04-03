@@ -261,7 +261,22 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-               
+           
+        try {
+            for(int c=0; c<sl.list.size(); c++) {
+                if(sl.list.get(c).getLotno()==Integer.parseInt(txtLotno.getText().toString())) {
+                    sl.list.remove(c);
+                    hf.saveToFile(sl.list);
+                    JOptionPane.showMessageDialog(this, "Record successfully deleted!");
+                    
+                    txtLotno.setText("");
+                    clearField();
+                }
+            }
+         }
+         catch(Exception e) {
+             System.out.println(e);
+         }      
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
