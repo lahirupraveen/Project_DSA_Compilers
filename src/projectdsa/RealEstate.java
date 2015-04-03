@@ -46,34 +46,49 @@ public class RealEstate extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Real Estate Program");
 
+        jPanel1.setBackground(new java.awt.Color(46, 139, 239));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 255));
-        jLabel1.setText("Next house displayed");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Lot Number:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("First Name:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Last Name:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Price:");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Square Feet:");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Number of Bedrooms:");
 
+        txtLotno.setBorder(null);
+
+        txtFname.setBorder(null);
+
+        txtLname.setBorder(null);
+
+        txtPrice.setBorder(null);
+
+        txtSqfeet.setBorder(null);
+
+        txtNob.setBorder(null);
+
+        btnAdd.setBackground(new java.awt.Color(0, 161, 0));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +96,8 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
+        btnClear.setBackground(new java.awt.Color(219, 86, 46));
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +105,8 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
+        btnNext.setBackground(new java.awt.Color(0, 161, 0));
+        btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Next");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +114,8 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(219, 86, 46));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +123,8 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
+        btnFind.setBackground(new java.awt.Color(0, 161, 0));
+        btnFind.setForeground(new java.awt.Color(255, 255, 255));
         btnFind.setText("Find");
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +132,8 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
+        btnReset.setBackground(new java.awt.Color(219, 86, 46));
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,33 +186,30 @@ public class RealEstate extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtLotno, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(58, 58, 58))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtSqfeet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLotno, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSqfeet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNob, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNext)
                     .addComponent(btnFind, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -195,11 +217,11 @@ public class RealEstate extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClear)
-                    .addComponent(btnReset))
-                .addGap(9, 9, 9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnReset)
+                    .addComponent(btnClear))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,6 +242,7 @@ public class RealEstate extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -258,6 +281,8 @@ public class RealEstate extends javax.swing.JFrame {
                         txtNob.setText(Integer.toString(sl.list.get(c + 1).getNob()));
                         txtPrice.setText(Integer.toString(sl.list.get(c + 1).getPrice()));
                         txtSqfeet.setText(Integer.toString(sl.list.get(c + 1).getSqfeet()));
+                        
+                        jLabel1.setText("House "+(c+2)+" Selected");
                     }
                 }
             } else {
@@ -350,6 +375,8 @@ public class RealEstate extends javax.swing.JFrame {
                         txtNob.setText(Integer.toString(sl.list.get(c).getNob()));
                         txtPrice.setText(Integer.toString(sl.list.get(c).getPrice()));
                         txtSqfeet.setText(Integer.toString(sl.list.get(c).getSqfeet()));
+                        
+                        jLabel1.setText("House "+(c+1)+" Selected");
                     }
                 }
             } else {
@@ -386,6 +413,8 @@ public class RealEstate extends javax.swing.JFrame {
         txtPrice.setText("");
         txtSqfeet.setText("");
         txtNob.setText("");
+        
+        jLabel1.setText(" ");
 
     }
 
