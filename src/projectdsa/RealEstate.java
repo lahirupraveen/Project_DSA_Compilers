@@ -223,7 +223,7 @@ public class RealEstate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        
+
         try {
             int selectedOption = JOptionPane.showConfirmDialog(null,
                     "Do you want to clear the file?",
@@ -269,7 +269,7 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        
+
         try {
             if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
                 JOptionPane.showMessageDialog(this, "Entered Lot Number already exist!");
@@ -293,15 +293,28 @@ public class RealEstate extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
         try {
-            for (int c = 0; c < sl.list.size(); c++) {
-                if (sl.list.get(c).getLotno() == Integer.parseInt(txtLotno.getText().toString())) {
-                    sl.list.remove(c);
-                    hf.saveToFile(sl.list);
-                    JOptionPane.showMessageDialog(this, "Record successfully deleted!");
+            if (txtLotno.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Lot No can not be empty!");
+            } else if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
+                int selectedOption = JOptionPane.showConfirmDialog(null,
+                        "Do you want to delete this record?",
+                        "Confirmation",
+                        JOptionPane.YES_NO_OPTION);
+                if (selectedOption == JOptionPane.YES_OPTION) {
+                    for (int c = 0; c < sl.list.size(); c++) {
+                        if (sl.list.get(c).getLotno() == Integer.parseInt(txtLotno.getText().toString())) {
+                            sl.list.remove(c);
+                            hf.saveToFile(sl.list);
+                            JOptionPane.showMessageDialog(this, "Record successfully deleted!");
 
-                    txtLotno.setText("");
-                    clearField();
+                            txtLotno.setText("");
+                            clearField();
+                        }
+                    }
                 }
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Entered Lot Number does not exist!");
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -309,7 +322,7 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        
+
         int selectedOption = JOptionPane.showConfirmDialog(null,
                 "Do you want to clear fields?",
                 "Confirmation",
@@ -346,7 +359,7 @@ public class RealEstate extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnFindActionPerformed
 
-     private boolean isNumber(String text) {
+    private boolean isNumber(String text) {
         try {
             int number = Integer.parseInt(text);
             return true;
@@ -363,7 +376,7 @@ public class RealEstate extends javax.swing.JFrame {
             return false;
         }
     }
-    
+
     private void clearField() {
 
         txtFname.setText("");
