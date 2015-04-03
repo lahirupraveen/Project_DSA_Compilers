@@ -339,7 +339,9 @@ public class RealEstate extends javax.swing.JFrame {
         clearField();
 
         try {
-            if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
+            if (txtLotno.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Lot No can not be empty!");
+            } else if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
 
                 for (int c = 0; c < sl.list.size(); c++) {
                     if (sl.list.get(c).getLotno() == Integer.parseInt(txtLotno.getText().toString())) {
