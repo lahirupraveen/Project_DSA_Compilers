@@ -235,6 +235,27 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
 
+        try {
+            if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
+                int searchLotNo = Integer.parseInt(txtLotno.getText().toString());
+                for (int c = 0; c < sl.list.size(); c++) {
+                    int currentLotNo = sl.list.get(c).getLotno();
+                    if (currentLotNo == searchLotNo) {
+                        System.out.println(sl.list.get(c + 1).getLotno());
+                        txtLotno.setText(Integer.toString(sl.list.get(c + 1).getLotno()));
+                        txtFname.setText(sl.list.get(c + 1).getFname());
+                        txtLname.setText(sl.list.get(c + 1).getLname());
+                        txtNob.setText(Integer.toString(sl.list.get(c + 1).getNob()));
+                        txtPrice.setText(Integer.toString(sl.list.get(c + 1).getPrice()));
+                        txtSqfeet.setText(Integer.toString(sl.list.get(c + 1).getSqfeet()));
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Entered Lot Number does not exist!");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed

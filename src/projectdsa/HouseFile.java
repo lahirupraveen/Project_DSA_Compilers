@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.*;
 
 public class HouseFile {
-    private String filePath="F:\\HouseFile.txt";
+    private String filePath="HouseFile.txt";
     
     public void saveToFile(ArrayList<ListHouse> list) throws IOException
     {
