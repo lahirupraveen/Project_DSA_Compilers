@@ -6,15 +6,14 @@ public class RealEstate extends javax.swing.JFrame {
 
     SortedList sl = new SortedList();
     HouseFile hf = new HouseFile();
-   
+
     public RealEstate() {
         initComponents();
-        
+
         try {
             // calls the copyList method in SortedList
             sl.copyList();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -224,11 +223,20 @@ public class RealEstate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-         try {
-            // calls the resetArrayList() method in SortedList class
-            sl.resetArrayList();
-        }
-        catch(Exception e) {
+        
+        try {
+            int selectedOption = JOptionPane.showConfirmDialog(null,
+                    "Do you want to clear the file?",
+                    "Confirmation",
+                    JOptionPane.YES_NO_OPTION);
+            if (selectedOption == JOptionPane.YES_OPTION) {
+                // calls the resetArrayList() method in SortedList class
+                sl.resetArrayList();
+                txtLotno.setText("");
+                clearField();
+                JOptionPane.showMessageDialog(this, "File cleared successfully!");
+            }
+        } catch (Exception e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_btnResetActionPerformed
@@ -236,7 +244,9 @@ public class RealEstate extends javax.swing.JFrame {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
 
         try {
-            if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
+            if (txtLotno.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Lot No can not be empty!");
+            } else if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
                 int searchLotNo = Integer.parseInt(txtLotno.getText().toString());
                 for (int c = 0; c < sl.list.size(); c++) {
                     int currentLotNo = sl.list.get(c).getLotno();
@@ -259,12 +269,12 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-          try {
-            if(sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
-                JOptionPane.showMessageDialog(this, "Entered Lot Number already exist!");   
-            }
-            else {
-                ListHouse a=new ListHouse();
+        
+        try {
+            if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
+                JOptionPane.showMessageDialog(this, "Entered Lot Number already exist!");
+            } else {
+                ListHouse a = new ListHouse();
                 a.setFname(txtFname.getText());
                 a.setLname(txtLname.getText());
                 a.setLotno(Integer.parseInt(txtLotno.getText().toString()));
@@ -275,75 +285,95 @@ public class RealEstate extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(this, "Record successfully inserted!");
             }
+        } catch (Exception e) {
+            System.out.println(e);
         }
-      catch(Exception e){
-          System.out.println(e);
-      }       
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-           
+
         try {
-            for(int c=0; c<sl.list.size(); c++) {
-                if(sl.list.get(c).getLotno()==Integer.parseInt(txtLotno.getText().toString())) {
+            for (int c = 0; c < sl.list.size(); c++) {
+                if (sl.list.get(c).getLotno() == Integer.parseInt(txtLotno.getText().toString())) {
                     sl.list.remove(c);
                     hf.saveToFile(sl.list);
                     JOptionPane.showMessageDialog(this, "Record successfully deleted!");
-                    
+
                     txtLotno.setText("");
                     clearField();
                 }
             }
-         }
-         catch(Exception e) {
-             System.out.println(e);
-         }      
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         
-        txtLotno.setText("");
-        clearField();
-        
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+                "Do you want to clear fields?",
+                "Confirmation",
+                JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+
+            txtLotno.setText("");
+            clearField();
+        }
     }//GEN-LAST:event_btnClearActionPerformed
-  
+
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-        
+
         clearField();
-        
-         try {
-            if(sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
-             
-                for(int c=0; c<sl.list.size(); c++) {
-                    if(sl.list.get(c).getLotno()==Integer.parseInt(txtLotno.getText().toString())) {
+
+        try {
+            if (sl.isThere(Integer.parseInt(txtLotno.getText().toString()))) {
+
+                for (int c = 0; c < sl.list.size(); c++) {
+                    if (sl.list.get(c).getLotno() == Integer.parseInt(txtLotno.getText().toString())) {
                         txtFname.setText(sl.list.get(c).getFname());
                         txtLname.setText(sl.list.get(c).getLname());
                         txtNob.setText(Integer.toString(sl.list.get(c).getNob()));
                         txtPrice.setText(Integer.toString(sl.list.get(c).getPrice()));
-                        txtSqfeet.setText(Integer.toString(sl.list.get(c).getSqfeet()));                  
+                        txtSqfeet.setText(Integer.toString(sl.list.get(c).getSqfeet()));
                     }
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(this, "Entered Lot Number does not exist!");
-            }     
-            
-         }
-         catch(Exception e) {
-             System.out.println(e);
-         }   
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnFindActionPerformed
-       
+
+     private boolean isNumber(String text) {
+        try {
+            int number = Integer.parseInt(text);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+
+    private boolean isDecimalNumber(String text) {
+        try {
+            float number = Float.parseFloat(text);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+    
     private void clearField() {
-        
+
         txtFname.setText("");
         txtLname.setText("");
         txtPrice.setText("");
         txtSqfeet.setText("");
-        txtNob.setText("");  
-    
+        txtNob.setText("");
+
     }
-               
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
